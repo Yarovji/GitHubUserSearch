@@ -1,0 +1,31 @@
+<footer>
+  GitHub Users Search
+</footer>
+<form [formGroup]="form">
+  <mat-form-field class="example-input-width">
+    <input matInput placeholder="Enter username" formControlName="query" pattern="^[a-z0-9_-]{3,15}$">
+    <mat-error *ngIf="form.invalid">{{"INCORRECT USERNAME"}}</mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="search()" type="submit" [disabled]="!form.valid">
+    Search
+  </button>
+</form>
+<div class="mat-elevation-z8" *ngIf="users">
+  <div *ngIf="users[0]">
+    <table mat-table [dataSource]="dataSource" >
+      <ng-container matColumnDef="avatar_url">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" (click)="getUser(element.login)">
+          <img [src]="element.avatar_url" [alt]="element.login">
+          <p>{{element.login}}</p>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+  </div>
+  <div *ngIf="!users[0]" class="name-not-exist">
+    <b>This name does not exist</b>
+  </div>
+</div>

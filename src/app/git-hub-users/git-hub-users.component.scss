@@ -1,0 +1,49 @@
+.main-container {
+  display: flex;
+  background-color: #e6f4ff;
+}
+
+.avatar-box {
+  margin: 3%;
+}
+
+h2 {
+  text-align: center;
+}
+
+.about {
+  margin: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2em;
+}
+
+a {
+  display: block;
+  background-color:#002e4d;
+  color: white;
+  text-align: center;
+  height: 5%;
+  font-size: 1.5em;
+}
+
+a:hover {
+  background-color: #000f1a;
+}
+
+@media screen and (max-width: 1000px){
+  .main-container {
+    display: block;
+    background-color: white;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  .about {
+    margin: 1.5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+  }
+}

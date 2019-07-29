@@ -1,0 +1,21 @@
+<div *ngIf="user">
+  <div class="main-container">
+    <div class="avatar-box">
+      <img class="avatar-img" src="{{user.avatar_url}}">
+      <h2>{{user.name || user.login}}</h2>
+    </div>
+    <div class="about">
+      <ul>
+        <li *ngIf="user.location"><span>Location: </span>{{user.location}}</li>
+        <li *ngIf="user.email"><span>Email: </span>{{user.email}}</li>
+        <li *ngIf="user.company"><span>Company: </span>{{user.company}}</li>
+        <li *ngIf="user.blog"><span>Blog: </span>{{user.blog}}</li>
+        <li><span>Public Repositories:</span>{{user.public_repos}}</li>
+        <li><span>Followers:</span>{{user.followers}}</li>
+        <li><span>Following:</span>{{user.following}}</li>
+        <li><span>Created at: </span>{{user.created_at | date}}</li>
+      </ul>
+    </div>
+  </div>
+  <a href="{{user.html_url}}">View profile on GitHub</a>
+</div>
